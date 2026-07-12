@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout into pluginfolder
+        uses: actions/checkout@v4
+        with:
+          path: MatchWinrateTuning
+
+      - name: Package plugin
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "Packaging MatchWinrateTuning version $VERSION"
+          zip -r "MatchWinrateTuning-${VERSION}.zip" "MatchWinrateTuning" \
+            -x "MatchWinrateTuning/.git/*" "MatchWinrateTuning/.github/*" "MatchWinrateTuning/.gitignore"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "MatchWinrateTuning-*.zip"
+          generate_release_notes: true
