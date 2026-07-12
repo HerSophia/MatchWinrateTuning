@@ -1,6 +1,11 @@
 # CHANGELOG — Match Winrate Tuning
 
-版本号遵循语义化版本。适配游戏：Esports Manager 2026 Steam 正版补丁 1.0.1（Unity 6000.3.12f1 / IL2CPP metadata v39）。
+版本号遵循语义化版本。适配游戏：Esports Manager 2026 Steam 正版补丁 1.0.2（Unity 6000.3.12f1 / IL2CPP metadata v39）。
+
+## 1.0.1（2026-07-12）
+
+- 适配 Steam 正版补丁 1.0.2：随 EM.Framework 升级到 0.1.1 更新兼容自检指纹。
+- 插件本体逻辑未改动。胜率入口 GetTeamOneWinPercentage / IsTeamOneWinner / CalculateTeamPower 三个方法签名在 1.0.2 未变。
 
 ## 1.0.0（2026-07-12）
 
